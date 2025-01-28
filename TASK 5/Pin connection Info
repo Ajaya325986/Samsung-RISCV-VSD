@@ -1,0 +1,26 @@
+Power Sources:
+  Solar Panel (12V) with protection diode
+  12V Battery backup with protection diode
+  Both connected to relay module for power switching
+
+Power Management:
+  Relay module controlled by D3 pin of MCU
+  Voltage regulator to step down 12V to 5V for MCU and logic
+
+Sensing Components:
+  Voltage divider from solar panel to A0 pin (ADC input)
+  Analog counter connected to D2 pin
+  Protection resistors and capacitors for clean signals
+
+LED Control:
+  MOSFET driver circuit connected to D6 pin
+  LED array powered through MOSFET
+  Current limiting resistors for LEDs
+
+Key Implementation Notes:
+  Use voltage divider for solar panel sensing (e.g., 10kΩ and 2kΩ resistors)
+  Add decoupling capacitors near MCU power pins
+  Include flyback diode across relay coil
+  Use appropriate heat sinking for voltage regulator
+  Add pull-down resistor on MOSFET gate
+
