@@ -1,0 +1,19 @@
+The project uses a solar panel to power LEDs during the daytime. An analog counter tracks the motor rotations (e.g., wind turbine or similar setup). After the motor completes a set number of rotations (e.g., 10), the RISC-V board switches the LEDs to battery power (5V DC). The system provides efficient energy management and automation.
+
+Key Modules
+1. Power Supply System
+    - Solar Panel (Primary Source): Directly powers the LEDs during the day.
+    - Battery (Backup Source): Kicks in after the motor reaches the desired number of rotations.
+    - Voltage Regulator: If needed, ensures stable 3.3V or 5V for the RISC-V board.
+2. Rotation Detection System
+    - Analog Counter: Tracks the rotations of the DC motor. Outputs a pulse for every rotation.
+    - The RISC-V board reads these pulses via GPIO pins and counts them to determine when to switch power sources.
+3. Switching System
+    - Relays: Controlled by the RISC-V board to switch between solar and battery power.
+    - Diodes: Prevent backflow of current between solar panel and battery.
+4. Control and Display
+    - The RISC-V board:
+    - Reads the analog counter to count motor rotations.
+    - Activates relays to switch power sources.
+    - Can optionally indicate the system state using onboard GPIO-connected LEDs or UART for debugging.
+
